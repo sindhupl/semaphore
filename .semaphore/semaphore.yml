@@ -1,0 +1,12 @@
+version: v1.0
+name: Python Test Pipeline
+
+blocks:
+  - name: Run tests
+    task:
+      jobs:
+        - name: Test Job
+          commands:
+            - checkout
+            - pip install -r requirements.txt
+            - pytest
