@@ -1,6 +1,11 @@
 version: v1.0
 name: Python Test Pipeline
 
+agent:
+  machine:
+    type: e1-standard-2
+    os_image: ubuntu2204
+
 blocks:
   - name: Run tests
     task:
@@ -8,5 +13,5 @@ blocks:
         - name: Test Job
           commands:
             - checkout
-            - pip install -r requirements.txt
-            - pytest
+            - python -m pip install -r requirements.txt
+            - python -m pytest
