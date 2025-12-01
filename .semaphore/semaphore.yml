@@ -7,11 +7,14 @@ agent:
     os_image: ubuntu2204
 
 blocks:
-  - name: Run tests
+  - name: Run Python Tests
     task:
+      prologue:
+        commands:
+          - checkout
       jobs:
         - name: Test Job
           commands:
-            - checkout
-            - python -m pip install -r requirements.txt
-            - python -m pytest
+            - python3 -m pip install --upgrade pip
+            - python3 -m pip install -r requirements.txt
+            - python3 -m pytest
